@@ -14,7 +14,12 @@ void selection_sort(int *array, size_t size)
 {
 	size_t index, temp, jndex, min;
 
-	for (index = 0; index < size - 1; index++)
+	if (array == NULL || array[1] == '\0')
+	{
+		return;
+	}
+
+	for (index = 0; index < (size - 1); index++)
 	{
 		min = index;
 
@@ -31,8 +36,9 @@ void selection_sort(int *array, size_t size)
 			temp = array[index];
 			array[index] = array[min];
 			array[min] = temp;
+
+			print_array(array, size);
 		}
 
-		print_array(array, size);
 	}
 }
